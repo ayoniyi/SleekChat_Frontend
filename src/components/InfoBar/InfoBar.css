@@ -1,0 +1,39 @@
+.infoBarContainer {
+  background: #363636;
+  padding: 1em 1em 1em 3em;
+  font-family: 'Righteous', cursive;
+  width: 80%;
+}
+.infoBarContent {
+  display: flex;
+  justify-content: space-between;
+  /* background: lavender; */
+}
+.IBleft {
+  display: flex;
+  align-items: center;
+}
+.IBleft img {
+  margin-right: 1em;
+  width: 10%;
+}
+.IBTitle {
+  font-size: 1.1em;
+  text-transform: uppercase;
+  color: #fff;
+}
+.leaveBtn {
+  color: #fff;
+  background: #fb2929;
+  border-radius: 15px;
+  width: 164px;
+  height: 55px;
+  outline: none;
+  border: 0;
+  font-family: 'Righteous', cursive;
+  font-size: 0.9em;
+  transition: 0.4s ease-in;
+}
+.leaveBtn:hover {
+  background: #d42222;
+}

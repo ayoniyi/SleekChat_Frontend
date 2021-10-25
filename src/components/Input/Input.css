@@ -1,0 +1,32 @@
+.chatInputForm {
+  position: fixed;
+  width: 80%;
+  bottom: 0;
+  background: rgb(158, 158, 173);
+  display: flex;
+  font-family: 'Righteous', cursive;
+}
+.chatInput {
+  padding-left: 1em;
+  height: 65px;
+  width: 85%;
+  background: #ffffff;
+  border: 1px solid #d4d1d1;
+  box-sizing: border-box;
+  outline: none;
+}
+.chatSubmit {
+  width: 15%;
+  height: 65px;
+  background: #0b8a1f;
+  outline: none;
+  font-family: 'Righteous', cursive;
+  font-size: 0.9em;
+  color: #ffffff;
+  transition: 0.4s ease-in;
+  border: 0;
+}
+.chatSubmit:hover {
+  background: #086115;
+  transition: 0.4s ease-in;
+}

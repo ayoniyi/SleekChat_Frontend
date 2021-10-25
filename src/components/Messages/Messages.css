@@ -1,0 +1,15 @@
+.messagesContainer {
+  width: 80%;
+  background: #d5d1d1;
+  padding: 1em 2em;
+  font-family: 'Righteous', cursive;
+  display: flex;
+  height: 84vh;
+}
+.messagesContent {
+  display: flex;
+  flex-direction: row;
+  /* background: rgb(64, 92, 57); */
+  width: 100%;
+  /* margin-bottom: 2em; */
+}
