@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-//import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import io from 'socket.io-client'
 
 import InfoBar from '../InfoBar/InfoBar'
@@ -12,7 +12,7 @@ import './Chat.css'
 let socket
 
 const Chat = () => {
-  //let history = useHistory()
+  let history = useHistory()
 
   const [name, setName] = useState('')
   const [room, setRoom] = useState('')
@@ -27,6 +27,10 @@ const Chat = () => {
 
     socket = io(ENDPOINT, { transports: ['websocket'] })
 
+    if (!name || !room) {
+      history.push('/')
+    }
+
     setName(name)
     setRoom(room)
 
@@ -34,11 +38,11 @@ const Chat = () => {
     console.log(socket)
 
     return () => {
-      // socket.emit('disconnect')
-      // socket.off()
-      // window.location.reload()
+      socket.emit('disconnect')
+      socket.off()
+      history.push('/')
     }
-  }, [ENDPOINT])
+  }, [ENDPOINT, history])
 
   useEffect(() => {
     socket.on('message', (message) => {
