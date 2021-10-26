@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import io from 'socket.io-client'
+import { isMobile } from 'react-device-detect'
 
 import InfoBar from '../InfoBar/InfoBar'
 import Messages from '../Messages/Messages'
@@ -21,32 +22,40 @@ const Chat = () => {
   const [messages, setMessages] = useState([])
   //const [load, SetLoad] = useState('loaded')
   const ENDPOINT = 'https://sleekchat-server.herokuapp.com/'
+  //const ENDPOINT = 'http://localhost:5000/'
 
   // useEffect(() => {
   //   refresh()
   // }, [load])
 
-  const refresh = () => {
-    // setTimeout(() => {
-    //   window.location.reload()
-    // }, 200)
-    // if (!window.location.hash) {
-    //   window.location = window.location + '#loaded'
-    //   //window.location.reload()
-    // }
-    //window.onload = function () {
-    if (!window.location.hash) {
-      window.location = window.location + '#loaded'
+  //const refresh = () => {
+  // setTimeout(() => {
+  //   window.location.reload()
+  // }, 200)
+  // if (!window.location.hash) {
+  //   window.location = window.location + '#loaded'
+  //   //window.location.reload()
+  // }
+  //window.onload = function () {
+  // if (!window.location.hash) {
+  //   window.location = window.location + '#loaded'
+  //   window.location.reload()
+  // }
+  //}
+  //}
+
+  if (isMobile) {
+    document.addEventListener('visibilitychange', function () {
+      //document.title = document.hidden ? "I'm away" : "I'm here";
       window.location.reload()
-    }
-    //}
+    })
   }
 
   useEffect(() => {
     const name = localStorage.getItem('userName')
     const room = localStorage.getItem('room')
 
-    refresh()
+    //refresh()
 
     socket = io(ENDPOINT, { transports: ['websocket'] })
 
@@ -56,12 +65,13 @@ const Chat = () => {
     socket.emit('join', { name, room }, () => {})
     console.log(socket)
 
-    return () => {
-      socket.emit('disconnect')
-      socket.off()
-      //refresh()
-      //history.push('/')
-    }
+    //return () => {
+    //refresh()
+    // socket.emit('disconnect')
+    // socket.off()
+
+    //history.push('/')
+    //}
   }, [ENDPOINT, history])
 
   useEffect(() => {
