@@ -19,19 +19,36 @@ const Chat = () => {
   const [users, setUsers] = useState('')
   const [message, setMessage] = useState('')
   const [messages, setMessages] = useState([])
+  //const [load, SetLoad] = useState('loaded')
   const ENDPOINT = 'https://sleekchat-server.herokuapp.com/'
 
-  useEffect(() => {
-    window.location.reload()
+  // useEffect(() => {
+  //   refresh()
+  // }, [load])
 
+  const refresh = () => {
+    // setTimeout(() => {
+    //   window.location.reload()
+    // }, 200)
+    // if (!window.location.hash) {
+    //   window.location = window.location + '#loaded'
+    //   //window.location.reload()
+    // }
+    //window.onload = function () {
+    if (!window.location.hash) {
+      window.location = window.location + '#loaded'
+      window.location.reload()
+    }
+    //}
+  }
+
+  useEffect(() => {
     const name = localStorage.getItem('userName')
     const room = localStorage.getItem('room')
 
-    socket = io(ENDPOINT, { transports: ['websocket'] })
+    refresh()
 
-    if (!name || !room) {
-      history.push('/')
-    }
+    socket = io(ENDPOINT, { transports: ['websocket'] })
 
     setName(name)
     setRoom(room)
@@ -42,9 +59,10 @@ const Chat = () => {
     return () => {
       socket.emit('disconnect')
       socket.off()
-      history.push('/')
+      //refresh()
+      //history.push('/')
     }
-  }, [ENDPOINT, history, name, room])
+  }, [ENDPOINT, history])
 
   useEffect(() => {
     socket.on('message', (message) => {
