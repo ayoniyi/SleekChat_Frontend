@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import io from 'socket.io-client'
-import { isMobile } from 'react-device-detect'
+//import { isMobile } from 'react-device-detect'
 
 import InfoBar from '../InfoBar/InfoBar'
 import Messages from '../Messages/Messages'
@@ -44,7 +44,15 @@ const Chat = () => {
   //}
   //}
 
-  if (isMobile) {
+  // if (isMobile) {
+  //   document.addEventListener('visibilitychange', function () {
+  //     //document.title = document.hidden ? "I'm away" : "I'm here";
+  //     window.location.reload()
+  //   })
+  // }
+  if (window.screen.width <= 800) {
+    /* conditional statements */
+
     document.addEventListener('visibilitychange', function () {
       //document.title = document.hidden ? "I'm away" : "I'm here";
       window.location.reload()
