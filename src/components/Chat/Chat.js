@@ -34,10 +34,9 @@ const Chat = () => {
     console.log(socket)
 
     return () => {
-      socket.emit('disconnect')
-
-      socket.off()
-      window.location.reload()
+      // socket.emit('disconnect')
+      // socket.off()
+      // window.location.reload()
     }
   }, [ENDPOINT])
 

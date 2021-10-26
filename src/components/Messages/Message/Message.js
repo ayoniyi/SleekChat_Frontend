@@ -8,6 +8,13 @@ import ReactEmoji from 'react-emoji'
 const Message = ({ message: { user, text }, name }) => {
   const trimmedName = name.trim().toLowerCase()
 
+  //const time = new Date().toLocaleTimeString().substr(0, 5)
+  //   const hours = date.getHours()
+  //   const minutes = date.getMinutes()
+  //   const seconds = date.getSeconds()
+  //   const time = hours + minutes + seconds
+  //   console.log(date)
+
   let isSentByCurrentUser = false
   //   let isAdmin = false
 
@@ -51,31 +58,15 @@ const Message = ({ message: { user, text }, name }) => {
         <p className="messageText ">{ReactEmoji.emojify(text)}</p>
       </motion.div>
       <p className="senderName">{trimmedName}</p>
+      {/* <p className="receiverName">{time}</p> */}
     </div>
   ) : (
     <div className="messageReceive">
-      <motion.div
-        className="messageReceiveBox"
-        // initial="hidden"
-        // animate="visible"
-        // variants={{
-        //   hidden: {
-        //     opacity: 0,
-        //     scale: 0.5,
-        //   },
-        //   visible: {
-        //     opacity: 1,
-        //     scale: 1,
-        //     transition: {
-        //       type: 'spring',
-        //       duration: 0.5,
-        //     },
-        //   },
-        // }}
-      >
+      <motion.div className="messageReceiveBox">
         <p className="messageText ">{ReactEmoji.emojify(text)}</p>
       </motion.div>
       <p className="receiverName">{user}</p>
+      {/* <p className="receiverName">{time}</p> */}
     </div>
   )
 }

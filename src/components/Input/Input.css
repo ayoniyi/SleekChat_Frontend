@@ -8,7 +8,8 @@
 }
 .chatInput {
   padding-left: 1em;
-  height: 65px;
+  /* height: 65px; */
+  height: 9.5vh;
   width: 85%;
   background: #ffffff;
   border: 1px solid #d4d1d1;
@@ -17,7 +18,8 @@
 }
 .chatSubmit {
   width: 15%;
-  height: 65px;
+  /* height: 65px; */
+  height: 9.5vh;
   background: #0b8a1f;
   outline: none;
   font-family: 'Righteous', cursive;

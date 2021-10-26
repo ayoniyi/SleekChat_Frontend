@@ -1,14 +1,24 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useHistory } from 'react-router-dom'
+import io from 'socket.io-client'
 
 import './Join.css'
 
 import Logo from '../../icons/logo1.png'
 //import Light from '../../icons/light.png'
 
+let socket
+
 const Join = () => {
   let history = useHistory()
+
+  const ENDPOINT = 'https://sleekchat-server.herokuapp.com/'
+
+  socket = io(ENDPOINT, { transports: ['websocket'] })
+
+  //socket.emit('disconnect')
+  socket.off()
 
   const [name, setName] = useState('')
   // Room represents conversations
