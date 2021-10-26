@@ -30,3 +30,14 @@
   background: #086115;
   transition: 0.4s ease-in;
 }
+@media (max-width: 417px) {
+  .chatInputForm {
+    width: 100%;
+  }
+  .chatInput {
+    width: 75%;
+  }
+  .chatSubmit {
+    width: 25%;
+  }
+}

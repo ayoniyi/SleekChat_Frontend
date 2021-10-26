@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 
 import './Message.css'
 
@@ -28,16 +29,52 @@ const Message = ({ message: { user, text }, name }) => {
 
   return isSentByCurrentUser ? (
     <div className="messageSend">
-      <div className="messageSendBox ">
+      <motion.div
+        className="messageSendBox"
+        // initial="hidden"
+        // animate="visible"
+        // variants={{
+        //   hidden: {
+        //     opacity: 0,
+        //     scale: 0.5,
+        //   },
+        //   visible: {
+        //     opacity: 1,
+        //     scale: 1,
+        //     transition: {
+        //       type: 'spring',
+        //       duration: 0.5,
+        //     },
+        //   },
+        // }}
+      >
         <p className="messageText ">{ReactEmoji.emojify(text)}</p>
-      </div>
+      </motion.div>
       <p className="senderName">{trimmedName}</p>
     </div>
   ) : (
     <div className="messageReceive">
-      <div className="messageReceiveBox">
+      <motion.div
+        className="messageReceiveBox"
+        // initial="hidden"
+        // animate="visible"
+        // variants={{
+        //   hidden: {
+        //     opacity: 0,
+        //     scale: 0.5,
+        //   },
+        //   visible: {
+        //     opacity: 1,
+        //     scale: 1,
+        //     transition: {
+        //       type: 'spring',
+        //       duration: 0.5,
+        //     },
+        //   },
+        // }}
+      >
         <p className="messageText ">{ReactEmoji.emojify(text)}</p>
-      </div>
+      </motion.div>
       <p className="receiverName">{user}</p>
     </div>
   )

@@ -20,13 +20,13 @@
   color: #fff;
   font-size: 1.1em;
   justify-content: flex-start;
-  margin: 2em 0;
+  margin: 0.5em 0;
 }
 .receiverName {
   margin-left: 0.5em;
 }
 .messageReceiveBox {
-  margin: 2em 0;
+  margin: 0.5em 0;
   padding: 1em 3em;
   width: 25vw;
   background: #f6f6f8;
@@ -44,4 +44,25 @@
   color: black;
   font-size: 1.1em;
   justify-content: flex-end;
+}
+@media (max-width: 900px) {
+  .messageSendBox,
+  .messageReceiveBox {
+    padding: 1em;
+    font-size: 0.95em;
+  }
+  .messageSendBox,
+  .messageReceiveBox {
+    width: 31vw;
+  }
+}
+@media (max-width: 417px) {
+  .messageSendBox,
+  .messageReceiveBox {
+    padding: 0.7em 1em;
+  }
+  .messageSendBox,
+  .messageReceiveBox {
+    width: 55vw;
+  }
 }

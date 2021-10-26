@@ -37,3 +37,14 @@
 .leaveBtn:hover {
   background: #d42222;
 }
+@media (max-width: 417px) {
+  .infoBarContainer {
+    width: 90%;
+    height: 11vh;
+    padding: 1em;
+  }
+  .leaveBtn {
+    width: 134px;
+    height: 45px;
+  }
+}

@@ -23,6 +23,10 @@ const TextContainer = ({ users }) => (
                     <img alt="Online Icon" src={onlineIcon} />
                   </div>
                 ))}
+                <div className="active-m">
+                  <p className="activeName">{users.length}</p>
+                  <img alt="Online Icon" src={onlineIcon} />
+                </div>
               </h2>
             </div>
           </div>

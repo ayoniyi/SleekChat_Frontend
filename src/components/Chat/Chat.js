@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+//import { useHistory } from 'react-router-dom'
 import io from 'socket.io-client'
 
 import InfoBar from '../InfoBar/InfoBar'
@@ -11,6 +12,8 @@ import './Chat.css'
 let socket
 
 const Chat = () => {
+  //let history = useHistory()
+
   const [name, setName] = useState('')
   const [room, setRoom] = useState('')
   const [users, setUsers] = useState('')
