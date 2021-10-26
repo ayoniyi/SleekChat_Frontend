@@ -29,5 +29,6 @@
 @media (max-width: 417px) {
   .messagesContainer {
     width: 100%;
+    padding-top: 12vh;
   }
 }
