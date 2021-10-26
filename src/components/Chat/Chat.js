@@ -19,7 +19,7 @@ const Chat = () => {
   const [users, setUsers] = useState('')
   const [message, setMessage] = useState('')
   const [messages, setMessages] = useState([])
-  const ENDPOINT = 'localhost:5000'
+  const ENDPOINT = 'https://sleekchat-server.herokuapp.com/'
 
   useEffect(() => {
     const name = localStorage.getItem('userName')
