@@ -22,6 +22,8 @@ const Chat = () => {
   const ENDPOINT = 'https://sleekchat-server.herokuapp.com/'
 
   useEffect(() => {
+    window.location.reload()
+
     const name = localStorage.getItem('userName')
     const room = localStorage.getItem('room')
 
@@ -42,7 +44,7 @@ const Chat = () => {
       socket.off()
       history.push('/')
     }
-  }, [ENDPOINT, history])
+  }, [ENDPOINT, history, name, room])
 
   useEffect(() => {
     socket.on('message', (message) => {
