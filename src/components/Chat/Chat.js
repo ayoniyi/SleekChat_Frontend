@@ -52,34 +52,53 @@ const Chat = () => {
   // }
   if (window.screen.width <= 800) {
     /* conditional statements */
-
     document.addEventListener('visibilitychange', function () {
       //document.title = document.hidden ? "I'm away" : "I'm here";
-      window.location.reload()
+      //window.location.reload()
+      if (document.hidden) {
+        //do whatever you want
+        console.log('Hidden')
+      } else {
+        //do whatever you want
+        console.log('SHOWN')
+        window.location.reload()
+      }
     })
   }
+
+  useEffect(() => {
+    return () => {
+      if (history.action === 'POP') {
+        history.go(1)
+      }
+    }
+  }, [history])
 
   useEffect(() => {
     const name = localStorage.getItem('userName')
     const room = localStorage.getItem('room')
 
+    if (!name || !room) {
+      history.push('/')
+    } else {
+      socket = io(ENDPOINT, { transports: ['websocket'] })
+
+      setName(name)
+      setRoom(room)
+
+      socket.emit('join', { name, room }, () => {})
+      console.log(socket)
+
+      //return () => {
+      //refresh()
+      // socket.emit('disconnect')
+      // socket.off()
+
+      //history.push('/')
+      //}
+    }
+
     //refresh()
-
-    socket = io(ENDPOINT, { transports: ['websocket'] })
-
-    setName(name)
-    setRoom(room)
-
-    socket.emit('join', { name, room }, () => {})
-    console.log(socket)
-
-    //return () => {
-    //refresh()
-    // socket.emit('disconnect')
-    // socket.off()
-
-    //history.push('/')
-    //}
   }, [ENDPOINT, history])
 
   useEffect(() => {
