@@ -21,7 +21,7 @@ const Chat = () => {
   const [message, setMessage] = useState('')
   const [messages, setMessages] = useState([])
   //const [load, SetLoad] = useState('loaded')
-  const ENDPOINT = 'https://sleekchat-server.herokuapp.com/'
+  const ENDPOINT = 'https://sleakchat-backend.onrender.com'
   //const ENDPOINT = 'http://localhost:5000/'
 
   // useEffect(() => {
